@@ -4,8 +4,6 @@ Installation
 ------------
 
 To get the latest commit from GitHub
-
-.. code-block:: bash
     
     sudo su -s /bin/bash edxapp
     cd
@@ -16,7 +14,6 @@ To get the latest commit from GitHub
      
 Add ``course_chatbot`` to your ``INSTALLED_APPS``
 
-.. code-block:: python
 
     INSTALLED_APPS = (
         ...,
@@ -24,8 +21,6 @@ Add ``course_chatbot`` to your ``INSTALLED_APPS``
     )
 
 Add ``course_chatbot`` url to your lms's url.py
-
-.. code-block:: python
 
     #chatbot urls
     urlpatterns += [
@@ -38,8 +33,6 @@ Add ``course_chatbot`` url to your lms's url.py
     ]
 
 Add chatbot placeholder in your theme's footer.html
-
-.. code-block:: python 
 
     <%!
       from course_chatbot.templatetags.course_chatbot_tags import get_chatbot_url
