@@ -24,7 +24,50 @@ from openedx.core.djangolib.js_utils import (
 <%include file="/courseware/course_navigation.html" args="active_page='course_chatbot'" />
 
 <style type="text/css">
+ul.list-input{ list-style: none; padding: 0px; margin-bottom: 15px;}
+ul.list-input li lable { display: inline-block !important;
+    margin-right: 15px;} 
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.625rem 0.625rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: 0.1875rem;
+    transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #0075b4;
+    border-color: #0075b4;
+}
+.btn-primary:hover {
+    color: #fff;
+    background: #005c8e !important;
+    border-color: #005481 !important;
+}
 
+ 
+
+.btn-outline-primary {
+    color: #0075b4;
+    background-color: transparent;
+    background-image: none;
+    border-color: #0075b4;
+}
+
+ 
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background: #0075b4 !important;
+    border-color: #0075b4 !important;
+}
 </style>
 % if chatbot:
 <form name="action" method="POST">
@@ -38,8 +81,8 @@ from openedx.core.djangolib.js_utils import (
  
    <div class="form-actions">
        <p>
-           <button type="submit" name="action" value="del_chatbot">${_('Delete Chatbot')}</button>
-           <button type="submit" name="action" value="create_chatbot">${_('Update Chatbot')}</button>
+           <button type="submit" class="btn btn-outline-primary" name="action" value="del_chatbot">${_('Delete Chatbot')}</button>
+           <button type="submit" class="btn btn-primary" name="action" value="create_chatbot">${_('Update Chatbot')}</button>
        </p>
     </div>
 </form>
@@ -55,7 +98,7 @@ from openedx.core.djangolib.js_utils import (
 
    <div class="form-actions">
        <p>
-           <button type="submit" name="action" value="create_chatbot">${_('Add Chatbot')}</button>                                                                              </p>
+           <button type="submit" class="btn btn-primary" name="action" value="create_chatbot">${_('Add Chatbot')}</button>                                                                              </p>
     </div>
 </form>
 
