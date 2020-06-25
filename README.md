@@ -40,5 +40,5 @@ Add chatbot placeholder in your theme's footer.html
 
     <iframe name="guido" align="right" style="position: fixed;bottom: 5px;right: 10px;height: 570px;width: 320px;z-index: 99999;overflow: hidden;" frameborder="0" scrolling="no"  class="frame-area" src= ${ request.path | get_chatbot_url}></iframe>
 
-Restart lms
+Migrate LMS and Restart lms
 
