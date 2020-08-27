@@ -42,3 +42,15 @@ Add chatbot placeholder in your theme's footer.html
 
 Migrate LMS and Restart lms
 
+
+To Enable the Chatbot make a entry in Django admin 
+
+
+    Goto https://<YOUR-LMS-URL>/admin/waffle/switch/ 
+    Click on ADD SWITCH button
+    Enter name as ``Chatbot_Switch`` 
+    Check the active checkbox to enable the chatbot
+    Add a Note
+    Click Save
+
+
