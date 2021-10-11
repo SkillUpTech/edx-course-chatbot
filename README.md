@@ -10,6 +10,7 @@ To get the latest commit from GitHub
     source edxapp_env
     cd /var/tmp
     git clone https://github.com/SkillUpTech/edx-course-chatbot.git
+    cd edx-course-chatbot
     pip install .
      
 Add ``course_chatbot`` to your ``INSTALLED_APPS``
