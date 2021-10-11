@@ -44,6 +44,13 @@ Add chatbot placeholder in your theme's footer.html
 Migrate LMS and Restart lms
 
 
+    Logout from bash as edxapp user
+    Crtl+d
+    Run migrate command
+    /edx/bin/edxapp-migrate-lms course_chatbot
+    Restart lms
+    /edx/bin/supervisorctl restart lms
+
 To Enable the Chatbot make a entry in Django admin 
 
 
