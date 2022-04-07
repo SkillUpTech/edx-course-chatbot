@@ -10,7 +10,7 @@ def get_chatbot_url(course_id):
     """
     Get chatbot url for the course
     """
-    if "/courses/course-v1" in course_id and waffle.switch_is_active('Chatbot_Switch'):
+    if "/courses/course-v1" in course_id and "/about" not in course_id and waffle.switch_is_active('Chatbot_Switch'):
         cid = course_id.split("/courses/")[1].split("/")[0]
         try:
             course_chatbot = CourseChatbot.objects.get(course_id=cid)
