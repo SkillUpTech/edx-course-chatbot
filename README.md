@@ -34,14 +34,17 @@ Add ``course_chatbot`` url to your lms's url.py
     ]
 
 Add chatbot placeholder in your theme's footer.html
-    ``
+
+    
     <%!
       from course_chatbot.templatetags.course_chatbot_tags import get_chatbot_url
     %>
-
+    
+    
     % if request.user.is_authenticated:
       ${ request.path+','+request.user.username | get_chatbot_url}
     % endif
+    
     
 Migrate LMS and Restart lms
 
