@@ -27,6 +27,7 @@ from openedx.core.djangolib.js_utils import (
 ul.list-input{ list-style: none; padding: 0px; margin-bottom: 15px;}
 ul.list-input li lable { display: inline-block !important;
     margin-right: 15px;} 
+ul.list-input .textarea { color: #404040; }
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -68,6 +69,8 @@ ul.list-input li lable { display: inline-block !important;
     background: #0075b4 !important;
     border-color: #0075b4 !important;
 }
+
+
 </style>
 % if chatbot:
 <form name="action" method="POST">
@@ -75,7 +78,7 @@ ul.list-input li lable { display: inline-block !important;
    <ul class="list-input">
       <li class="field text">
                 <label for="chatbot_url">${_('Chatbot URL')}</label>
-                <input type="text" name="chatbot_url" value='${chatbot.chatbot_url}' size=50 required />
+                <textarea rows="10" cols="80" name="chatbot_url" class="textarea">${chatbot.chatbot_url}</textarea>
       </li> 
    </ul>  
  
@@ -92,7 +95,7 @@ ul.list-input li lable { display: inline-block !important;
    <ul class="list-input">
       <li class="field text">
                 <label for="chatbot_url">${_('Chatbot URL')}</label>
-                <input type="text" name="chatbot_url" size=50 required />
+                <textarea rows="10" cols="80" name="chatbot_url" class="textarea"></textarea>
       </li>
    </ul>
 

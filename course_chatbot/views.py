@@ -35,14 +35,23 @@ class ChatbotView(GenericAPIView):
         }
  
         if action == "create_chatbot":
-            chatbot_obj, created = CourseChatbot.objects.update_or_create(course_id=course_id,
-                                                    chatbot_url = chatbot_url
-                                                    )
-            context.update({"chatbot": chatbot_obj }) 
+            try:
+                chatbot_obj, created = CourseChatbot.objects.get_or_create(course_id=course_id)
+                if created:
+                    chatbot_obj.chatbot_url = chatbot_url
+                    chatbot_obj.save()
+                else:
+                    chatbot_obj.chatbot_url = chatbot_url
+                    chatbot_obj.save()
+                context.update({"chatbot": chatbot_obj }) 
+            except:
+                pass
 
         if action == "del_chatbot":
-            chatbot_obj = CourseChatbot.objects.get(course_id = course_id)
-            chatbot_obj.delete()
-            context.update({"chatbot": None})
-
+            try:
+                chatbot_obj = CourseChatbot.objects.get(course_id = course_id)
+                chatbot_obj.delete()
+                context.update({"chatbot": None})
+            except:
+                pass 
         return render_to_response("chatbot/chatbot.html", context)
