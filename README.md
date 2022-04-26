@@ -9,8 +9,8 @@ To get the latest commit from GitHub
     cd
     source edxapp_env
     cd /var/tmp
-    git clone https://github.com/SkillUpTech/edx-course-chatbot.git
-    cd edx-course-chatbot
+    git clone https://github.com/SkillUpTech/edx-maple-course-level-chatbot.git
+    cd edx-maple-course-level-chatbot
     pip install .
      
 Add ``course_chatbot`` to your ``INSTALLED_APPS``
@@ -25,13 +25,14 @@ Add ``course_chatbot`` url to your lms's url.py
 
     #chatbot urls
     urlpatterns += [
-        url(
-            r'^courses/{}/chatbot/'.format(
-                settings.COURSE_ID_PATTERN,
-            ),
-            include('course_chatbot.urls'),
-        ),
-    ]
+      re_path(
+         r'^courses/{}/chatbot/'.format(
+             settings.COURSE_ID_PATTERN,
+         ),
+         include('course_chatbot.urls'),
+         name='course_chatbot_endpoints',
+      ),
+    ]       
 
 Add chatbot placeholder in your theme's footer.html
 

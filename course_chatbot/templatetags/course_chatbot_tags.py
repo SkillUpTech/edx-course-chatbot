@@ -1,4 +1,4 @@
-from enrollment.api import get_enrollment
+from openedx.core.djangoapps.enrollments.api import get_enrollments
 from django import template
 from course_chatbot.models import CourseChatbot
 import requests
@@ -19,7 +19,7 @@ def get_chatbot_url(data):
     username = info[1]
     if "/courses/course-v1" in course_id and "about" not in course_id and waffle.switch_is_active('Chatbot_Switch'):
         cid = course_id.split("/courses/")[1].split("/")[0]
-        course_enrollment = get_enrollment(username,cid)
+        course_enrollment = get_enrollments(username,cid)
         if not course_enrollment:
             return ""
         try:

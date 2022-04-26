@@ -1,8 +1,8 @@
 import logging
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
 from opaque_keys.edx.keys import CourseKey
-from courseware.courses import get_course_with_access, has_access
+from lms.djangoapps.courseware.courses import get_course_with_access, has_access
 from course_chatbot.models import CourseChatbot
 
 log = logging.getLogger(__name__)
@@ -22,7 +22,7 @@ class ChatbotView(GenericAPIView):
             "chatbot": chatbot_obj,
         }
         
-        return render_to_response("chatbot/chatbot.html", context)
+        return render(request, 'chatbot/chatbot.html', context)
 
     def post(self, request, course_id):
         action = request.POST['action']
@@ -54,4 +54,4 @@ class ChatbotView(GenericAPIView):
                 context.update({"chatbot": None})
             except:
                 pass 
-        return render_to_response("chatbot/chatbot.html", context)
+        return render(request, 'chatbot/chatbot.html', context)

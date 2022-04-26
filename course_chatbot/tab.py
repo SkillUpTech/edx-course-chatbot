@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.utils.translation import ugettext_noop
-from courseware.tabs import EnrolledTab
-from courseware.access import has_access
+from lms.djangoapps.courseware.tabs import EnrolledTab
+from lms.djangoapps.courseware.access import has_access
 import waffle
 
 class ChatbotTab(EnrolledTab):
@@ -15,7 +15,7 @@ class ChatbotTab(EnrolledTab):
         """
         type = "chatbot"
         title = ugettext_noop('Chatbot')
-        view_name = "course_chatbot"
+        view_name = "course_chatbot_dashboard"
         is_dynamic = True
 
         @classmethod
